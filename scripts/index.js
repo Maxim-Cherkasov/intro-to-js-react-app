@@ -1,3 +1,4 @@
+import '../node_modules/jquery/dist/jquery.js';
 /*
 We initially stored a reference to this section in 
 a variable and then accessed its
@@ -33,6 +34,7 @@ ResultContainer.innerHTML = sum(10, 5, 5, 5);
 */
 
 //Destructuring and Spread sintax
+
 /*
 let fruits = ['Apple', 'Watermelon', 'Grapes'];
 
@@ -42,18 +44,18 @@ ResultContainer.innerHTML = fruit2;
 */
 
 /*
-
 let fruits = ['Apple', 'Watermelon', 'Grapes',
    'Guava'];
 
 let [fruit, ...OtherFruits] = fruits;
 
 ResultContainer.innerHTML = OtherFruits;
+*/
 
+/*
 The preceding piece of code will give you “Watermelon, Grapes, Guava” as output
 because the rest parameter syntax will assign all the remaining array elements to the
 “OtherFruits” variable
-
 */
 
 // Objects can be destructured in a similar way with arrays 
@@ -181,7 +183,7 @@ and body 1 are separated by “?” operator, whereas both the bodies are separa
 operator. Body 1 will be executed if the condition is true, whereas body 2 will be executed
 if the condition is false
 */
-
+/*
 var a = 16;
 var b = 17;
 
@@ -226,23 +228,418 @@ if (hour < 10 || hour > 18 || isWeekend) {
   alert( 'The office is closed.' ); // it is the weekend
 }
 */
+/*
 console.log(('true && false: ' + (true && false)));
 console.log(typeof(true));
+*/
 /*
 In classical programming, AND returns true if
    both operands are truthy and false otherwise:
 */
 
+//console.log('!true: ' + (!true));
+
+// Ternary Operator
+
+/*
+The syntax is:
+let result = condition*if-true* ? *return*value1 : value2*else*;
+*/
+
+/*
+let accessAllowed;
+let age = prompt('How old are you?', '');
+
+if (age > 18) {
+   accessAllowed = true;
+} else {
+   accessAllowed = false;
+
+alert(accessAllowed);
+*/
+
+// Multiple '?'
+/*
+let age = prompt('age ?', 18);
+
+let message = (age < 3) ? 'Hi, baby!' :
+   (age < 18) ? 'Hello' : 
+   age < 100 ? 'Greetings' :
+   'What an unusual age';
+
+   alert(message);
+*/
+
+// FUNCTIONS
+/*
+function fun()
+{
+   console.log('Regular JS Function.');
+}
+
+let functionExpr = function() {
+   console.log('Function Expression');
+}
+
+let arrFunction = () => {
+   console.log('Arrow Function');
+}
+
+fun();
+functionExpr();
+arrFunction();
+*/
+
+// Closures
+/*
+var increment = (function () {
+   var counter = 0;
+   return function () {
+      counter += 1;
+      console.log(counter);
+   }
+})();
+
+increment();
+increment();
+increment();
+
+var count = counter;
+console.log(count);
+*/
+/*
+function makeCounter() {
+   let count = 0;
+
+   return function() {
+      return count++;
+   };
+}
+
+let counter = makeCounter();
+
+alert(counter);
+*/
+
+/*
+A variable is a property of a special internal object
+associated with the currently executing block/function/script
+
+Working with variables is actually working with
+the propertioes of that object
+
+A function is also a value, the difference is
+that Function declaration is instantly fully initialized
+unlike let, that is unusable till the declaration
+*/
+/*
+function makeCounter() {
+   let count = 0;
+ 
+   return function() {
+     return count++;
+   };
+ }
+ 
+ let counter = makeCounter();
+ console.log(counter());
+ console.log(counter());
+*/
+
+// Arrays
+
+// var fruits = ['Watermelon', 'Lemon', 'Apple'];
+
+// We can also store other objects inside an array. For instance, consider the
+// following example:
+
+/*
+var fruits = ['Watermelon', 'Grapes'];
+
+fruits[2] = {
+   "Apple1": "Red apple",
+   "Apple2": "Green apple"
+};
+console.log(fruits);
+*/
 
 
+var fruits = ['Watermelon', 'Grapes', 'Lemons'];
+/*
+console.log('Array: ' + fruits.toString());
+console.log(fruits);
+*/
 
+// The items are sorted as strings by default.
+/*
+fruits.sort();
+console.log("Sorted Array: " + fruits.toString());
+*/
 
+// forEach
+/*
+arr.forEach(function(item, index, array) {
+  // ... do something with item
+});
+*/
 
+/*
+console.log('forEach:');
+fruits.forEach(element => {
+   console.log(element);
+})
+*/
 
+// push
+/*
+fruits.push('Strawberry');
+console.log('Push: ' + fruits.toString());
+*/
 
+// Pop -  removes the last value from the array.
 
+/*
+fruits.pop();
+console.log('Pop: ' + fruits.toString());
+*/
 
+// Shift - removes the first value
 
+/*
+fruits.shift();
+console.log('Shift: ' + fruits.toString());
+*/
+
+// Unshift - This method adds a new element to the array at
+// the first index and shifts the remaining
+// values by one index.
+
+/*
+fruits.unshift('Apple')
+console.log('Unshift: ' + fruits.toString());
+*/
+
+// Array.isArray(arr)
+//  – This method returns true if “arr”
+// is an array.
+
+// console.log('isArray? ' + Array.isArray(fruits));
+
+// Concationation - 
+//This method is used to concatenate two arrays:
+// arr1 and arr2
+/*
+var moreFruits = ['Strawberry'];
+fruits = fruits.concat(moreFruits);
+console.log('Concatenate: ' + fruits.toString());
+*/
+
+/* The str.split(delim) method
+splits the string into an array
+by the given delimiter delim
+
+Here, we split by a comma followed by space:
+*/
+
+/*
+let names = 'Bilbo, Gandalf, Nazgul';
+
+let arr = names.split(', ');
+
+for (let name of arr) {
+  alert( `A message to ${name}.` ); // A message to Bilbo  (and other names)
+}
+*/
+
+/* The call arr.join(glue) does the reverse to split. It creates a string of arr
+items joined by glue between them.
+*/
+
+/*
+let arr = ['Bilbo', 'Gandalf', 'Nazgul'];
+
+let str = arr.join(';'); // glue the array into a string using ;
+
+alert( str ); // Bilbo;Gandalf;Nazgul
+*/
+
+// arr.splice
+
+// The arr.splice method is a
+// swiss army knife for arrays.
+// It can do everything: insert, 
+// remove and replace elements.
+
+// arr.splice(start[, deleteCount, elem1, ..., elemN])
+
+/*
+let arr = ["I", "study", "JavaScript", "right", "now"];
+
+// remove 3 first elements and replace them with another
+arr.splice(0, 3, "Let's", "dance");
+
+alert( arr ) // now ["Let's", "dance", "right", "now"]
+*/
+
+// fruits.splice(0, 0, 'Guava');
+// console.log('Splice: ' + fruits.toString());
+
+// Slice
+
+// The syntax is:
+// arr.slice([start], [end])
+
+/*
+var top3fruits = fruits.slice(1,2);
+console.log('Slice: ' + top3fruits.toString());
+*/
+
+// Classes and Modules
+
+/*
+class Dog {
+   constructor(id) {
+      this.id = id;
+   }
+}
+
+let dog = new Dog(100);
+console.log(dog.id);
+
+dog.id = 200;
+console.log(dog.id);
+*/
+
+// Inheritance
+
+/*
+class Animal {
+   constructor(type) {
+      this.type = type;
+   }
+   getType() {
+      return this.type;
+   }
+}
+
+class Dog extends Animal {
+   constructor() {
+      super('dog');
+   }
+}
+
+let dog = new Dog();
+console.log(dog.getType());
+*/
+
+// Modules
+
+/*
+import { Animal } from './modules/Animals.js';
+
+let dog = new Animal('dog');
+console.log(dog.getType());
+*/
+
+// Creating a Local Server
+
+// DOM Modification
+
+/*
+var header = document.getElementsByTagName("h1");
+var body = document.getElementById("ResultContainer");
+var footer = document.getElementsByClassName("Footer");
+
+console.log(header);
+console.log(body);
+console.log(footer);
+*/
+
+/*
+var header = document.getElementsByTagName("h1");
+header[0].textContent = "Header Text from JS";
+header[0].setAttribute('isHeader', 'True');
+header[0].style.border = '2px solid black';
+console.log(header[0]);
+*/
+
+/*
+let div = document.createElement('div');
+div.className = "alert";
+div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+
+document.body.append(div);
+*/
+
+// Error handling
+
+/*
+try {
+   throw new Error('Custom Developer Error');
+}
+catch(e) {
+   console.log('ERROR: ' + e.message);
+}
+*/
+
+/*
+try{
+   var fruit = new Fruit();
+  }
+  catch(e){
+   console.log('ERROR: ' + e.message);
+  }
+  console.log('rest of the code!');
+*/
+
+// HTTP Requests
+
+/*
+let request = new XMLHttpRequest();
+
+request.onreadystatechange = function() {
+   if (request.readyState == 4 && request.status == 200) {
+      console.log(request.response);
+   }
+}
+
+request.open('GET', 'https://api.github.com/users/msthakkar121');
+request.send();
+*/
+
+// jquery instead
+
+/*
+import '../node_modules/jquery/dist/jquery.js';
+
+$.get("https://api.github.com/users/msthakkar121", data => console.log(data));
+*/
+
+// Promises
+
+/*
+let promise = new Promise(function(resolve, reject) {
+   setTimeout(resolve, 100, 'Resolved');
+   //setTimeout(reject, 100, 'Rejected');
+});
+
+promise.then (
+   value => console.log('Success: ' + value),
+   error => console.log('Error: ' + error)
+);
+*/
+
+/*
+//$.get("https://api.github.com/users/msthakkar121", data => console.log(data));
+//The preceding piece of code can be rewritten using promise as follows:
+
+let promise = $.get("https://api.github.com/users/msthakkar100");
+
+promise.then(
+   data => console.log(data),
+   error => console.log(error)
+  );
+*/
 
 
 
