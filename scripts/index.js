@@ -12,6 +12,12 @@ ResultContainer.innerHTML = "Setting up the environment!";
 
 // Here we use a function declaration while the
 // omitting a name of a function is allowed for Function Expressions.
+
+// Rest parameter
+
+// Rest parameter helps us club (обьединить) multiple function input parameters
+// into a single array
+
 /*
 function sum(...inputs) {
    var result = 0;
@@ -22,6 +28,7 @@ function sum(...inputs) {
 }
 ResultContainer.innerHTML = sum(5, 10, 5, 5);
 */
+
 /*
 function sum(input1, input2, ...remainingInputs) {
    var result = input1 + input2;
@@ -33,7 +40,12 @@ function sum(input1, input2, ...remainingInputs) {
 ResultContainer.innerHTML = sum(10, 5, 5, 5);
 */
 
-//Destructuring and Spread sintax
+// Destructuring and Spread sintax
+
+/*
+helps us destructure an input array
+into multiple variables
+*/
 
 /*
 let fruits = ['Apple', 'Watermelon', 'Grapes'];
@@ -59,6 +71,7 @@ because the rest parameter syntax will assign all the remaining array elements t
 */
 
 // Objects can be destructured in a similar way with arrays 
+
 /*
 let fruits = {fruit1: 'Apple', fruit2: 'Watermelon'}
 let {fruit1, fruit2} = fruits;
@@ -66,6 +79,13 @@ ResultContainer.innerHTML = fruit1;
 */
 
 // Destructuring in functions
+
+/*
+Instead of collecting input parameters and clubbing it into an array, it
+will destructure the array of input parameters and assign the values to the variables
+mentioned in the function declaration
+*/
+
 /*
 function sum(a, b, c) {
    return a + b + c;
@@ -75,7 +95,8 @@ let input = [5,9,6];
 ResultContainer.innerHTML = sum(...input);
 */
 
-//Control loops
+// Control loops
+
 /*
 for (let i=0; i<8; i++) {
    if (i==1) {
@@ -86,58 +107,70 @@ for (let i=0; i<8; i++) {
       break; //considered true and stop on 4
    }
 }
-//output is i=0, i=2, i=3, i=4
 */
-//forEach
-//Basic syntax
+// output is i=0, i=2, i=3, i=4
+
+// forEach
+// basic syntax
+
 /*
-["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) =>{
+   ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) =>{
    ResultContainer.innerHTML = `${item} is at index ${index} in ${array}`
-})
+   })
 */
 
-//ES6
+// ES6 syntax
+
 /*
-let fruits = ['Apple', 'Grapes', 'Watermelon'];
-fruits.forEach((fruit, index, array) => {
+   let fruits = ['Apple', 'Grapes', 'Watermelon'];
+   fruits.forEach((fruit, index, array) => {
    console.log(index + ':' + fruit + array);
-})
+   })
 */
 
-//While 
+// While 
+// While the condition is truthy, the code from the loop body is executed.
+
+// while basic syntax
+
 /*
-let fruits = ['Apple', 'Grapes', 'Watermelon'];
-let i = 0;
-while (i < fruits.length) {
+   let i = 3;
+   while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
+   alert( i );
+   i--;
+   }
+*/
+
+/*
+   let fruits = ['Apple', 'Grapes', 'Watermelon'];
+   let i = 0;
+   while (i < fruits.length) {
    console.log(i + ': ' + fruits[i]);
    i++;
-}
+   }
 */
 
-//Do...while
-/*
-let fruits = ['Apple', 'Grapes', 'Watermelon'];
-let i = 0;
-do{
- console.log(i + ': ' + fruits[i]);
- i++;
-}while (i < fruits.length);
-*/
-/*
-let i = 0;
-do {
-  alert( i );
-  i++;
-} while (i < 3);
-*/
-/*
-The loop will first execute the body,
-then check the condition, and, while it’s truthy,
- execute it again and again.
+// Do...while
+// The loop will first execute the body, then check the condition,
+// and, while it’s truthy, execute it again and again
+// should only be used when you want the body of the loop
+// to execute at least once regardless of the condition being truthy
 
-This form of syntax should only be used
-when you want the body of the loop to execute at least once regardless of the condition being truthy.
-Usually, the other form is preferred: while(…) {…}.
+/*
+   let i = 0;
+   do {
+   alert( i );
+   i++;
+   } while (i < 3);
+*/
+
+/*
+   let fruits = ['Apple', 'Grapes', 'Watermelon'];
+   let i = 0;
+   do {
+   console.log(i + ': ' + fruits[i]);
+   i++;
+   } while (i < fruits.length);
 */
 
 // Type Conversion
@@ -171,18 +204,10 @@ operand.
 
 /*
 (!=) - Inequality. It's a Comparison operator.
-(!) - NOT. A Logical operator that is used to negate 
-the boolean value that is returned. 
+(!) - NOT. A Logical operator that is used to negate
+the boolean value that is returned.
 */
 
-// Ternary Operator
-
-/*
-Ternary operator is made up of three parts: condition, body 1, and body 2. Condition
-and body 1 are separated by “?” operator, whereas both the bodies are separated by “:”
-operator. Body 1 will be executed if the condition is true, whereas body 2 will be executed
-if the condition is false
-*/
 /*
 var a = 16;
 var b = 17;
@@ -204,14 +229,18 @@ console.log(b); //1
 
 console.log('Logical Operators');
 console.log('true || false: ' + (true || false));
+*/
+
 /*
 In classical programming, the logical OR is meant
-to manipulate boolean values only. If any of its 
+to manipulate boolean values only. If any of its
 arguments are true, it returns true, otherwise it returns false.
 */
+
 // Most of the time, OR || is used in an if statement
 // to test if any of the given conditions is true.
 // For example :
+
 /*
 let hour = 9;
 
@@ -228,10 +257,12 @@ if (hour < 10 || hour > 18 || isWeekend) {
   alert( 'The office is closed.' ); // it is the weekend
 }
 */
+
 /*
 console.log(('true && false: ' + (true && false)));
 console.log(typeof(true));
 */
+
 /*
 In classical programming, AND returns true if
    both operands are truthy and false otherwise:
@@ -240,6 +271,13 @@ In classical programming, AND returns true if
 //console.log('!true: ' + (!true));
 
 // Ternary Operator
+
+/*
+Ternary operator is made up of three parts: condition, body 1, and body 2. Condition
+and body 1 are separated by “?” operator, whereas both the bodies are separated by “:”
+operator. Body 1 will be executed if the condition is true, whereas body 2 will be executed
+if the condition is false
+*/
 
 /*
 The syntax is:
@@ -263,7 +301,7 @@ alert(accessAllowed);
 let age = prompt('age ?', 18);
 
 let message = (age < 3) ? 'Hi, baby!' :
-   (age < 18) ? 'Hello' : 
+   (age < 18) ? 'Hello' :
    age < 100 ? 'Greetings' :
    'What an unusual age';
 
@@ -290,7 +328,8 @@ functionExpr();
 arrFunction();
 */
 
-// Closures
+// res
+
 /*
 var increment = (function () {
    var counter = 0;
@@ -307,6 +346,7 @@ increment();
 var count = counter;
 console.log(count);
 */
+
 /*
 function makeCounter() {
    let count = 0;
@@ -326,21 +366,22 @@ A variable is a property of a special internal object
 associated with the currently executing block/function/script
 
 Working with variables is actually working with
-the propertioes of that object
+the properties of that object
 
 A function is also a value, the difference is
 that Function declaration is instantly fully initialized
 unlike let, that is unusable till the declaration
 */
+
 /*
 function makeCounter() {
    let count = 0;
- 
+
    return function() {
      return count++;
    };
  }
- 
+
  let counter = makeCounter();
  console.log(counter());
  console.log(counter());
@@ -364,7 +405,7 @@ console.log(fruits);
 */
 
 
-var fruits = ['Watermelon', 'Grapes', 'Lemons'];
+//var fruits = ['Watermelon', 'Grapes', 'Lemons'];
 /*
 console.log('Array: ' + fruits.toString());
 console.log(fruits);
@@ -497,16 +538,30 @@ console.log('Slice: ' + top3fruits.toString());
 // Classes and Modules
 
 /*
+   classes help us create constructor functions
+
+   to instantiate an object of the class, we use the new keyword.
+
+   class Dog
+   {
+   }
+   let dog = new Dog();
+*/
+
+/*
 class Dog {
-   constructor(id) {
+   constructor(id) { // adding some properties to our class
       this.id = id;
    }
 }
 
-let dog = new Dog(100);
+let dog = new Dog(100); // object of the class
 console.log(dog.id);
 
 dog.id = 200;
+console.log(dog.id);
+
+dog.id = 300;
 console.log(dog.id);
 */
 
@@ -641,6 +696,65 @@ promise.then(
   );
 */
 
+// Immutability
+
+/*
+Immutability is the property of an object,
+due to which you cannot change its value
+once it is defined. In order to modify
+the value of such objects, you have to create a new
+object and assign it to the same name.
+*/
+
+/*
+const root = ReactDOM.createRoot(
+   document.getElementById('root')
+ );
+
+ function tick() {
+   const element = (
+     <div>
+       <h1>Hello, world!</h1>
+       <h2>It is {new Date().toLocaleTimeString()}.</h2>
+     </div>
+   );
+   root.render(element);
+ }
+
+ setInterval(tick, 1000);
+*/
+
+
+// Purity
+// A pure function
+// never modifies the values of input parameters.
+
+// No matter how many times you call the next function,
+// it will always return the sum of parameters. 
+/*
+function add(a, b) {
+   return a + b;
+}
+*/
+
+// Impure function:
+
+// The output of the preceding function depends
+// on time and, hence, will be different
+// every time you invoke it.
+
+// Sometimes, you might want to get some inputs from the outside world or
+// make some changes to the external environment. In such cases, we use impure functions.
+// In React, a component is referred to as a pure component if its output depends only
+// on its props (function inputs). If the state of the component is involved in computing its
+// output, the component is said to be impure.
+
+/*
+function GetTodayDate() {
+   const date = new Date();
+   return date;
+}
+*/
 
 
 
